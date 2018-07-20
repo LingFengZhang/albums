@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="albums.op"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:albums"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <MediaPlayerElement Source="ms-appx:///Assets/opTrim.mp4"
+            MaxWidth="1500"
+            AutoPlay="True"/>
+        <Button x:Name="begain" BorderThickness="0"  Background="Transparent" HorizontalAlignment="Right" Height="1000" Width="1500" Click="begain_Click" />
+    </Grid>
+</Page>

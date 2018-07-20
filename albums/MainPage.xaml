@@ -5,10 +5,59 @@
     xmlns:local="using:albums"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    xmlns:gif="using:XamlAnimatedGif"
+    mc:Ignorable="d" >
+    <Page.Background>
+        <ImageBrush ImageSource="Assets/opTrim_Moment.jpg" Opacity="0.8"/>
+    </Page.Background>
 
-    <Grid>
+
+    <Grid Background="Transparent" Width="Auto" Height="Auto">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="600"/>
+            <ColumnDefinition Width="600"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="查看图片" HorizontalAlignment="Right" Height="auto" VerticalAlignment="Top" FontSize="48" x:Name="Open" Click="Open_ClickAsync" Grid.Row="0" >
+        </Button>
+        <Image x:Name="legend" HorizontalAlignment ="Left"  Grid.Column="1" Grid.Row="3"/>
+        <Button Content="查看作品" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="48" x:Name="cc" Click="openmine_clickAsync" Grid.Row="1">
+        </Button>
+        <ScrollViewer Name="scrollViewer" Width="600" Height="auto" 
+            IsVerticalScrollChainingEnabled="True"
+             Grid.Column="2" Grid.Row="3">
+            <ScrollViewer.Content>
+                <Image x:Name="mine" />
+            </ScrollViewer.Content>
+        </ScrollViewer>
+
+
 
     </Grid>
+
+    <Page.BottomAppBar >
+        <CommandBar>
+            <AppBarButton x:Name="AA"  Label="paint" Click="AA_clickAsync" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/bi-data.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+
+            <AppBarButton Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="AddNewPage"  Label="Add" Click="clickToAddNewPage">
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="ms-appx:///Assets/add73.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+
+
+        </CommandBar>
+
+    </Page.BottomAppBar>
 </Page>
+ 
