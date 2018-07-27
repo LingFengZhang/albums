@@ -9,9 +9,9 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
-        <MediaPlayerElement Source="ms-appx:///Assets/opTrim.mp4"
+        <!--<MediaPlayerElement Source="ms-appx:///Assets/opTrim.mp4"
             MaxWidth="1500"
-            AutoPlay="True"/>
+            AutoPlay="True"/>-->
         <Button x:Name="begain" BorderThickness="0"  Background="Transparent" HorizontalAlignment="Right" Height="1000" Width="1500" Click="begain_Click" />
     </Grid>
 </Page>

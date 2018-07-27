@@ -31,7 +31,7 @@ namespace albums
 
         private void begain_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage), "");
+            Frame.Navigate(typeof(mainpage_1), "");
         }
     }
 }

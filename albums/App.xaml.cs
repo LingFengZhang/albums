@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Threading;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,6 +14,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 namespace albums
@@ -20,13 +22,16 @@ namespace albums
     /// <summary>
     /// 提供特定于应用程序的行为，以补充默认的应用程序类。
     /// </summary>
+    
     sealed partial class App : Application
     {
+        public static string filename = null;
+        public static string fileload = null;
         /// <summary>
         /// 初始化单一实例应用程序对象。这是执行的创作代码的第一行，
         /// 已执行，逻辑上等同于 main() 或 WinMain()。
         /// </summary>
-         private void OnBackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)
+        private void OnBackRequested(object sender, Windows.UI.Core.BackRequestedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
             if (rootFrame == null)
@@ -42,6 +47,7 @@ namespace albums
 }
 public App()
         {
+
             this.InitializeComponent();
             this.Suspending += OnSuspending;
         }
@@ -112,6 +118,9 @@ public App()
             //TODO: 保存应用程序状态并停止任何后台活动
             deferral.Complete();
         }
+
+
+        
 
     }
 }

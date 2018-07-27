@@ -101,6 +101,13 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="mainpage_1.xaml.cs">
+      <DependentUpon>mainpage_1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\pictures.cs" />
+    <Compile Include="mypaint.xaml.cs">
+      <DependentUpon>mypaint.xaml</DependentUpon>
+    </Compile>
     <Compile Include="op.xaml.cs">
       <DependentUpon>op.xaml</DependentUpon>
     </Compile>
@@ -113,16 +120,106 @@
     <None Include="albums_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\2.jpg" />
-    <Content Include="Assets\6.jpg" />
     <Content Include="Assets\add73.png" />
     <Content Include="Assets\bi-data.png" />
+    <Content Include="Assets\eye88.png" />
+    <Content Include="Assets\miku.gif" />
+    <Content Include="Assets\NewFolder1\003B.png" />
+    <Content Include="Assets\NewFolder1\003C.png" />
+    <Content Include="Assets\NewFolder1\003D.png" />
+    <Content Include="Assets\NewFolder1\008B.png" />
+    <Content Include="Assets\NewFolder1\02c099035aafa40f8d4d6cd8a264034f79f019d9.jpg" />
+    <Content Include="Assets\NewFolder1\037A.png" />
+    <Content Include="Assets\NewFolder1\037C.png" />
+    <Content Include="Assets\NewFolder1\070B.png" />
+    <Content Include="Assets\NewFolder1\070D.png" />
+    <Content Include="Assets\NewFolder1\0e0e7c08c93d70cfaf610808f1dcd100bba12bc9.jpg" />
+    <Content Include="Assets\NewFolder1\1-15091QF251.jpg" />
+    <Content Include="Assets\NewFolder1\1-15091QF252.jpg" />
+    <Content Include="Assets\NewFolder1\106B.png" />
+    <Content Include="Assets\NewFolder1\13133474_225337683135_2.jpg" />
+    <Content Include="Assets\NewFolder1\134A.png" />
+    <Content Include="Assets\NewFolder1\134B.png" />
+    <Content Include="Assets\NewFolder1\134C.png" />
+    <Content Include="Assets\NewFolder1\134D.png" />
+    <Content Include="Assets\NewFolder1\150B.png" />
+    <Content Include="Assets\NewFolder1\18.jpg" />
+    <Content Include="Assets\NewFolder1\186D.png" />
+    <Content Include="Assets\NewFolder1\1ad1e743ad4bd113f2f8d83a51afa40f4bfb0541.jpg" />
+    <Content Include="Assets\NewFolder1\1ae23740329c11e89af5ef5cff0031bf.jpg" />
+    <Content Include="Assets\NewFolder1\2.jpg" />
+    <Content Include="Assets\NewFolder1\2017060554539253.jpg" />
+    <Content Include="Assets\NewFolder1\243DDECD2DEB54EEC458B7ADEA4C88A8.jpg" />
+    <Content Include="Assets\NewFolder1\296ae5a0a58e11e7bae2572d2ee07bdb.jpg" />
+    <Content Include="Assets\NewFolder1\3A9ED4AF827F4E41896E9E47ACA870FD.jpg" />
+    <Content Include="Assets\NewFolder1\483035b0177d11e8a2ec07215203f4a8.jpg" />
+    <Content Include="Assets\NewFolder1\4f664c90a20511e7ae310fc3ae9ab530.jpg" />
+    <Content Include="Assets\NewFolder1\500fa30f7bec54e76240b71bb0389b504fc26a3c.jpg" />
+    <Content Include="Assets\NewFolder1\5519894F4D23CEBF1F42AD6A1814249B.jpg" />
+    <Content Include="Assets\NewFolder1\6.jpg" />
+    <Content Include="Assets\NewFolder1\6f279183b9014a902d69e6b8a0773912b31bee16.jpg" />
+    <Content Include="Assets\NewFolder1\85d939c097da11e796666da5fd690dd8.jpg" />
+    <Content Include="Assets\NewFolder1\8c9c49a0983911e792ecf9268a5cee6f.jpg" />
+    <Content Include="Assets\NewFolder1\934edac093e211e7a027e3ece5523f07.jpg" />
+    <Content Include="Assets\NewFolder1\a29313709cde11e78bc92d17cc1302b6.jpg" />
+    <Content Include="Assets\NewFolder1\a7664042250fdc9c08a9ed57c4cbdd0892065eea.jpg" />
+    <Content Include="Assets\NewFolder1\ac1f242096f711e7b71ee778dbe74823.jpg" />
+    <Content Include="Assets\NewFolder1\aedac94a5d8423417a219bbc40d4d4868ed8533e.jpg" />
+    <Content Include="Assets\NewFolder1\c0cdeb20a05e11e79cca070c4a454643.png" />
+    <Content Include="Assets\NewFolder1\c3a5d900a75e11e7be8b134d205250cc.jpg" />
+    <Content Include="Assets\NewFolder1\c7f934809e1111e7a580e582d13e447e.jpg" />
+    <Content Include="Assets\NewFolder1\c822d3fdc3cec3fd5ce40570df88d43f8694278a.jpg" />
+    <Content Include="Assets\NewFolder1\CA310B6686F8051C868A5C23F6A8821F.jpg" />
+    <Content Include="Assets\NewFolder2\003B.png" />
+    <Content Include="Assets\NewFolder2\003C.png" />
+    <Content Include="Assets\NewFolder2\003D.png" />
+    <Content Include="Assets\NewFolder2\008B.png" />
+    <Content Include="Assets\NewFolder2\037A.png" />
+    <Content Include="Assets\NewFolder2\037C.png" />
+    <Content Include="Assets\NewFolder2\070B.png" />
+    <Content Include="Assets\NewFolder2\070D.png" />
+    <Content Include="Assets\NewFolder2\0e0e7c08c93d70cfaf610808f1dcd100bba12bc9.jpg" />
+    <Content Include="Assets\NewFolder2\1-15091QF251.jpg" />
+    <Content Include="Assets\NewFolder2\1-15091QF252.jpg" />
+    <Content Include="Assets\NewFolder2\106B.png" />
+    <Content Include="Assets\NewFolder2\13133474_225337683135_2.jpg" />
+    <Content Include="Assets\NewFolder2\134A.png" />
+    <Content Include="Assets\NewFolder2\134B.png" />
+    <Content Include="Assets\NewFolder2\134C.png" />
+    <Content Include="Assets\NewFolder2\134D.png" />
+    <Content Include="Assets\NewFolder2\150B.png" />
+    <Content Include="Assets\NewFolder2\18.jpg" />
+    <Content Include="Assets\NewFolder2\186D.png" />
+    <Content Include="Assets\NewFolder2\1ad1e743ad4bd113f2f8d83a51afa40f4bfb0541.jpg" />
+    <Content Include="Assets\NewFolder2\1ae23740329c11e89af5ef5cff0031bf.jpg" />
+    <Content Include="Assets\NewFolder2\2.jpg" />
+    <Content Include="Assets\NewFolder2\2017060554539253.jpg" />
+    <Content Include="Assets\NewFolder2\243DDECD2DEB54EEC458B7ADEA4C88A8.jpg" />
+    <Content Include="Assets\NewFolder2\296ae5a0a58e11e7bae2572d2ee07bdb.jpg" />
+    <Content Include="Assets\NewFolder2\3A9ED4AF827F4E41896E9E47ACA870FD.jpg" />
+    <Content Include="Assets\NewFolder2\483035b0177d11e8a2ec07215203f4a8.jpg" />
+    <Content Include="Assets\NewFolder2\4f664c90a20511e7ae310fc3ae9ab530.jpg" />
+    <Content Include="Assets\NewFolder2\500fa30f7bec54e76240b71bb0389b504fc26a3c.jpg" />
+    <Content Include="Assets\NewFolder2\5519894F4D23CEBF1F42AD6A1814249B.jpg" />
+    <Content Include="Assets\NewFolder2\6.jpg" />
+    <Content Include="Assets\NewFolder2\6f279183b9014a902d69e6b8a0773912b31bee16.jpg" />
+    <Content Include="Assets\NewFolder2\85d939c097da11e796666da5fd690dd8.jpg" />
+    <Content Include="Assets\NewFolder2\8c9c49a0983911e792ecf9268a5cee6f.jpg" />
+    <Content Include="Assets\NewFolder2\934edac093e211e7a027e3ece5523f07.jpg" />
+    <Content Include="Assets\NewFolder2\a29313709cde11e78bc92d17cc1302b6.jpg" />
+    <Content Include="Assets\NewFolder2\a7664042250fdc9c08a9ed57c4cbdd0892065eea.jpg" />
+    <Content Include="Assets\NewFolder2\ac1f242096f711e7b71ee778dbe74823.jpg" />
+    <Content Include="Assets\NewFolder2\aedac94a5d8423417a219bbc40d4d4868ed8533e.jpg" />
+    <Content Include="Assets\NewFolder2\c0cdeb20a05e11e79cca070c4a454643.png" />
+    <Content Include="Assets\NewFolder2\c3a5d900a75e11e7be8b134d205250cc.jpg" />
+    <Content Include="Assets\NewFolder2\c7f934809e1111e7a580e582d13e447e.jpg" />
+    <Content Include="Assets\NewFolder2\c822d3fdc3cec3fd5ce40570df88d43f8694278a.jpg" />
+    <Content Include="Assets\NewFolder2\CA310B6686F8051C868A5C23F6A8821F.jpg" />
+    <Content Include="Assets\NotFound.jpg" />
     <Content Include="Assets\op.gif" />
-    <Content Include="Assets\op.mp4" />
     <Content Include="Assets\opTrim.mp4" />
     <Content Include="Assets\opTrim_Moment.jpg" />
     <Content Include="Assets\return.png" />
-    <Content Include="Assets\WZ.jpg" />
     <Content Include="Assets\WZ_change.jpg" />
     <Content Include="BasicUwp.sln" />
     <Content Include="Properties\Default.rd.xml" />
@@ -148,6 +245,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="mainpage_1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="mypaint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="op.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,13 +262,32 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.5</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp">
+      <Version>3.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications">
+      <Version>3.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Services">
+      <Version>3.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI">
+      <Version>3.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Animations">
+      <Version>3.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>3.0.0</Version>
+    </PackageReference>
+    <PackageReference Include="MvvmLight">
+      <Version>5.4.1</Version>
+    </PackageReference>
     <PackageReference Include="XamlAnimatedGif">
       <Version>1.1.10</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Assets\NewFolder1\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <SDKReference Include="WindowsDesktop, Version=10.0.17134.0">
       <Name>Windows Desktop Extensions for the UWP</Name>

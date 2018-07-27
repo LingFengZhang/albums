@@ -8,56 +8,78 @@
     xmlns:gif="using:XamlAnimatedGif"
     mc:Ignorable="d" >
     <Page.Background>
-        <ImageBrush ImageSource="Assets/opTrim_Moment.jpg" Opacity="0.8"/>
+        <ImageBrush ImageSource="Assets/opTrim_Moment.jpg" Opacity="1"/>
     </Page.Background>
 
+    <ScrollViewer>
+        <Grid Background="Transparent" Width="1500" Height="800">
+        
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="1200"/>
+            </Grid.ColumnDefinitions>
+            <Border HorizontalAlignment="Left" 
+                    Height="auto" Width="300" VerticalAlignment="Top" BorderThickness="5" 
+                    BorderBrush="AliceBlue" Grid.Row="0" Background="#CEFFF4" Opacity="1">
+                <Grid HorizontalAlignment="Left" 
+                    Height="800" Width="300" VerticalAlignment="Top" Background="AliceBlue">
+                    <Image Source="/Assets/miku.gif" Height="800" VerticalAlignment="Top"/>
+                    <Button Content="查看图片"   HorizontalAlignment="Left" 
+                    Height="200" Width="300" VerticalAlignment="Bottom" FontSize="48" x:Name="Open" 
+                    Click="Open_ClickAsync" >
+                    </Button>
+                </Grid>
+            </Border>
+        
+        
+                
+                <Grid Grid.Column="1" Height="800" Width="1200">
+                <ScrollViewer  ZoomMode="Enabled" 
+                               HorizontalScrollMode="Enabled" VerticalScrollMode="Enabled" 
+                               HorizontalAlignment="Left" VerticalAlignment="Top" 
+                               HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                    <Border BorderThickness="10" BorderBrush="AliceBlue">
+                        <Button Name="view_this" HorizontalAlignment="Left" VerticalAlignment="Top" Height="auto" Width="auto"  Click="view_click">
+                            <Image x:Name="legend" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Top" />
 
-    <Grid Background="Transparent" Width="Auto" Height="Auto">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="100"></RowDefinition>
-            <RowDefinition Height="100"></RowDefinition>
-            <RowDefinition Height="auto"></RowDefinition>
+                        </Button>
+                    </Border>
+                    
+                </ScrollViewer>
+                
+               
 
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="600"/>
-            <ColumnDefinition Width="600"/>
-        </Grid.ColumnDefinitions>
-        <Button Content="查看图片" HorizontalAlignment="Right" Height="auto" VerticalAlignment="Top" FontSize="48" x:Name="Open" Click="Open_ClickAsync" Grid.Row="0" >
-        </Button>
-        <Image x:Name="legend" HorizontalAlignment ="Left"  Grid.Column="1" Grid.Row="3"/>
-        <Button Content="查看作品" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="48" x:Name="cc" Click="openmine_clickAsync" Grid.Row="1">
-        </Button>
-        <ScrollViewer Name="scrollViewer" Width="600" Height="auto" 
-            IsVerticalScrollChainingEnabled="True"
-             Grid.Column="2" Grid.Row="3">
-            <ScrollViewer.Content>
-                <Image x:Name="mine" />
-            </ScrollViewer.Content>
-        </ScrollViewer>
-
-
-
-    </Grid>
+            </Grid>
+                
+            
+            
+        </Grid>
+    </ScrollViewer>
 
     <Page.BottomAppBar >
-        <CommandBar>
-            <AppBarButton x:Name="AA"  Label="paint" Click="AA_clickAsync" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <AppBarButton.Icon>
-                    <BitmapIcon UriSource="ms-appx:///Assets/bi-data.png"/>
-                </AppBarButton.Icon>
-            </AppBarButton>
-
-            <AppBarButton Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="AddNewPage"  Label="Add" Click="clickToAddNewPage">
+            <CommandBar>
+            <AppBarButton Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="Add"  Label="Add" Click="click_Add">
                 <AppBarButton.Icon>
                     <BitmapIcon UriSource="ms-appx:///Assets/add73.png"/>
                 </AppBarButton.Icon>
             </AppBarButton>
+                
+            <AppBarButton x:Name="AA"  Label="paint" Click="AA_clickAsync" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                    <AppBarButton.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/bi-data.png"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+
+                <AppBarButton Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="see"  Label="mypaints" Click="clickToSee">
+                    <AppBarButton.Icon>
+                        <BitmapIcon UriSource="ms-appx:///Assets/eye88.png"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
 
 
-        </CommandBar>
+            </CommandBar>
 
-    </Page.BottomAppBar>
+        </Page.BottomAppBar>
+    
 </Page>
  
