@@ -17,6 +17,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
+using albums.Models;
 
 // https://go.microsoft.com/fwlink/?LinkId=234238 上介绍了“空白页”项模板
 
@@ -28,8 +29,11 @@ namespace albums
     public sealed partial class mypaint : Page
     {
         static int i = 0;
+        private List<Picture> pictures;
+
         public mypaint()
         {
+            pictures = somepictrues.Getpictures();
             this.InitializeComponent();
         }
 
@@ -38,11 +42,20 @@ namespace albums
 
         }
 
-        
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            
+            string stringA = (string)e.Parameter;
+            if(stringA != "")
+                my_paint.Source = new BitmapImage(new Uri(stringA, UriKind.RelativeOrAbsolute));
+            else
+                my_paint.Source = new BitmapImage(new Uri("ms-appx:///Assets/miku.gif", UriKind.RelativeOrAbsolute));
+
+        }
 
         private void clickToAddNewPage(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(MainPage), "");
+            Frame.Navigate(typeof(mainpage_1), "");
         }
 
         private async void AA_clickAsync(object sender, RoutedEventArgs e)
@@ -60,31 +73,22 @@ namespace albums
             if (i ==0)
             {
                 string string2 = "ms-appx:///Assets/NewFolder2/" + something.Text ;
-                A_paint.Source = new BitmapImage(new Uri(string2, UriKind.RelativeOrAbsolute));
+                my_paint.Source = new BitmapImage(new Uri(string2, UriKind.RelativeOrAbsolute));
                 i = 1;
             }
             else if(i ==1)
             {
                 string string1 = "ms-appx:///Assets/NewFolder1/" + something.Text ;
                 my_paint.Source = new BitmapImage(new Uri(string1, UriKind.RelativeOrAbsolute));
-                i = 2;
-            }
-            else if(i ==2)
-            {
-                string string1 = "ms-appx:///Assets/NewFolder1/" + something.Text;
-
-                string string2 = "ms-appx:///Assets/NewFolder2/" + something.Text;
-                my_paint.Source = new BitmapImage(new Uri(string2, UriKind.RelativeOrAbsolute));
-                A_paint.Source = new BitmapImage(new Uri(string2, UriKind.RelativeOrAbsolute));
-                A_paint.Opacity = 0.5;
                 i = 0;
             }
+            
         }
 
         private void choice_click(object sender, ItemClickEventArgs e)
         {
-;            TextBlock something = choice.SelectedItem as TextBlock;
-            string string2 = "ms-appx:///Assets/NewFolder2/" + something.Text ;
+             var picture = (Picture)e.ClickedItem;
+            string string2 = "ms-appx://" + picture.picturepath ;
             my_paint.Source = new BitmapImage(new Uri(string2, UriKind.RelativeOrAbsolute));
 
         }

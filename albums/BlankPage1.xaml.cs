@@ -46,7 +46,7 @@ public sealed partial class BlankPage1 : Page
         private void clickToAddNewPage(object sender, RoutedEventArgs e)
         {
             // 此处的NewPage是另一个页面的名字
-            Frame.Navigate(typeof(MainPage), "");
+            Frame.Navigate(typeof(choice), "");
         }
     }
 }

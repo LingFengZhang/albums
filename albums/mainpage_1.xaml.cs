@@ -1,4 +1,4 @@
-﻿using newalbums.Models;
+﻿using albums.Models;
 using System;
 using System.Collections.Generic;
 using Windows.ApplicationModel;
@@ -28,7 +28,7 @@ namespace albums
         {
             if (paint.IsSelected) { await FullTrustProcessLauncher.LaunchFullTrustProcessForCurrentAppAsync(); }
                 else if(see.IsSelected) { Frame.Navigate(typeof(mypaint), ""); }
-                    else if (add.IsSelected) { }
+                    else if (add.IsSelected) { Frame.Navigate(typeof(choice), ""); }
         }
 
         private void Hambutton_Click(object sender, RoutedEventArgs e)
@@ -51,7 +51,9 @@ namespace albums
 
         private void GridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            Frame.Navigate(typeof(mypaint),some_pictures.SelectedItem);
+            var picture = (Picture)e.ClickedItem;
+            string stringA = "ms-appx://" + picture.picturepath;
+            Frame.Navigate(typeof(mypaint), stringA);
 
         }
     }

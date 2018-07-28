@@ -6,12 +6,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    xmlns:data="using:albums.Models"
+    >
+    <Page.Background>
+        <ImageBrush ImageSource="Assets/opTrim_Moment.jpg" Opacity="0.6"/>
+    </Page.Background>
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="1500"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
         <ParallaxView Source="{x:Bind }" 
                       VerticalAlignment="Center" 
@@ -21,40 +25,27 @@
         </ParallaxView>
         <ListView x:Name="choice" 
                   IsItemClickEnabled="True"
+                  ItemsSource="{x:Bind pictures}"
                   ItemClick="choice_click" 
                   SelectionMode="Extended" 
-                  SelectedIndex="0" 
-                  Background="AliceBlue" Opacity="0.495"   
-                  FontSize="72" Grid.ColumnSpan="1" HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Center"
+                  Background="AliceBlue" Opacity="1"   
+                  Width="150" 
+                  Grid.Column="0" 
+                  HorizontalAlignment="Left" 
+                  VerticalAlignment="Center"
                   FontFamily="Arial" FontWeight="Bold" FontStyle="Italic">
-            
-            <TextBlock Text="2.jpg" FontSize="40" Width="300"/>
-            <TextBlock Text="18.jpg" FontSize="40" Width="300"/>
-            <TextBlock Text="037c.png" FontSize="40" Width="300"/>
-            <TextBlock Text="008b.png" FontSize="40" Width="300"/>
-            <TextBlock Text="070B.png" FontSize="40" Width="300"/>
-            <TextBlock Text="106B.png" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
-            <TextBlock Text="(Nothing)" FontSize="40" Width="300"/>
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="data:Picture">
+                    <StackPanel>
+                        <Border BorderThickness="10">
+                            <TextBlock  Height="70" Width="350" Text="{x:Bind picturepath}"/>
+                        </Border>
+                    </StackPanel>
+                    </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
-        <Image Grid.Column="1" Source="/Assets/op.gif" x:Name="my_paint" 
-               HorizontalAlignment="Left" Height="auto" VerticalAlignment="Center"/>
-        <Image Grid.Column="1" Source="/Assets/op.gif" x:Name="A_paint" 
-               HorizontalAlignment="Left" Height="auto" VerticalAlignment="Center"/>
-            <Button HorizontalAlignment="Left" Grid.Column="2" Height="1000" Width="1200" Name="change_mine" Click="change_click">
-        </Button>
+        <Image Grid.Column="1"  x:Name="my_paint" 
+               HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top"/>
     </Grid>
     <Page.BottomAppBar >
         <CommandBar>

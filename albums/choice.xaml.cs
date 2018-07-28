@@ -21,6 +21,7 @@ using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using GalaSoft.MvvmLight.Threading;
+using albums.Models;
 
 
 
@@ -32,9 +33,9 @@ namespace albums
     /// <summary>
     /// 可用于自身或导航至 Frame 内部的空白页。
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class choice : Page
     {
-        public MainPage()
+        public choice()
         {
 
             this.InitializeComponent();
@@ -70,6 +71,14 @@ namespace albums
 
                 view_this.Height = legend.Height;
                 view_this.Width = legend.Width;
+                Picture newpicure = new Picture();
+                Picture emptypicture = new Picture();
+                emptypicture.emptypivture();
+                newpicure.picturename = legend.Name;
+                newpicure.picturepath = "/Assets/NewFolder1/" + legend.Name;
+                Xmlfile xmlfile = new Xmlfile();
+                xmlfile.append(newpicure, emptypicture, "test_one");
+
             }
         }
 

@@ -5,7 +5,7 @@
     xmlns:local="using:albums"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:data ="using:newalbums.Models"
+    xmlns:data ="using:albums.Models"
     
     mc:Ignorable="d"
     >
@@ -68,7 +68,7 @@
                         <DataTemplate x:DataType="data:Picture">
                             <StackPanel>
                                 <Border BorderThickness="10">
-                                    <Image  Width="200" Source="{x:Bind picturename}"/>
+                                    <Image  Width="200" Source="{x:Bind picturepath}"/>
                                 </Border>
                             </StackPanel>
                         </DataTemplate>
