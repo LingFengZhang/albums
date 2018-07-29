@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using Windows.Storage;
 
 namespace albums.Models
 {
@@ -34,31 +35,34 @@ namespace albums.Models
                 XmlElement my_painting = doc.CreateElement("My_painting");
                 XmlElement item2 = doc.CreateElement("Item2");
                 item2.SetAttribute("path", "");
-                original_painting.AppendChild(item2);
+                my_painting.AppendChild(item2);
                  picture.AppendChild(my_painting);
                 //确定XML文档结构
 
-                doc.Save("Pictures.xml");
+                doc.Save("ms-appx:///Assets/Pictures.xml");
             }
 
         //添加图册成员
         public void append(Picture pictureA,Picture pictureB, string picturename)
         {
             XmlDocument doc = new XmlDocument();
-            if (File.Exists("Knights.xml"))
+            XmlElement pictures;
+            if (File.Exists("ms-appx:///Assets/Pictures.xml"))
             {
-                Console.WriteLine("打开成功");
-                doc.Load("Knights.xml");
+                
+                doc.Load("ms-appx:///Assets/Pictures.xml");
+                 pictures= doc.DocumentElement;
+
             }
             else
             {
-                XmlDeclaration dec = doc.CreateXmlDeclaration("1", "ufb - 8", null);
+                XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", "ufb - 8", null);
                 doc.AppendChild(dec);
+                pictures = doc.CreateElement("Pictures");
+
             }
 
             //创建根节点 pictures
-            XmlElement pictures = doc.CreateElement("Pictures");
-            doc.AppendChild(pictures);
 
             XmlElement picture = doc.CreateElement(picturename);
             pictures.AppendChild(picture);
@@ -76,17 +80,17 @@ namespace albums.Models
             picture.AppendChild(my_painting);
             //确定XML文档结构
 
-            doc.Save("Pictures.xml");
+            doc.Save("ms-appx:///Assets/Pictures.xml");
 
         }
         //删除图册成员
         public void remove(string picturename)
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load("Pictures.xml");
+            doc.Load("ms-appx:///Assets/Pictures.xml");
             XmlNode docnode = doc.SelectSingleNode("/Pictures/" + picturename);
             docnode.ParentNode.RemoveChild(docnode);
-            doc.Save("Pictures.xml");
+            doc.Save("ms-appx:///Assets/Pictures.xml");
         }
 
     }

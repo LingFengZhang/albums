@@ -222,6 +222,7 @@
     <Content Include="Assets\opTrim_Moment.jpg" />
     <Content Include="Assets\return.png" />
     <Content Include="Assets\WZ_change.jpg" />
+    <Content Include="Assets\Pictures.xml" />
     <Content Include="BasicUwp.sln" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -232,6 +233,7 @@
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="test.exe" />
+    <Content Include="Xmlfile1.xml" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

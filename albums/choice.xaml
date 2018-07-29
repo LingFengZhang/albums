@@ -37,13 +37,10 @@
                                HorizontalScrollMode="Enabled" VerticalScrollMode="Enabled" 
                                HorizontalAlignment="Left" VerticalAlignment="Top" 
                                HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
-                    <Border BorderThickness="10" BorderBrush="AliceBlue">
+                    
                         <Button Name="view_this" HorizontalAlignment="Left" VerticalAlignment="Top" Height="auto" Width="auto"  Click="view_click">
                             <Image x:Name="legend" Stretch="None" HorizontalAlignment="Left" VerticalAlignment="Top" />
-
                         </Button>
-                    </Border>
-                    
                 </ScrollViewer>
                 
                

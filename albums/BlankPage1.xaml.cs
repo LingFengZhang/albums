@@ -7,6 +7,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Networking.BackgroundTransfer;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -32,6 +34,8 @@ public sealed partial class BlankPage1 : Page
             this.InitializeComponent();       
             
         }
+
+
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
