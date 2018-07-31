@@ -19,6 +19,7 @@ namespace albums
 
         public mainpage_1()
         {
+
             pictures = somepictrues.Getpictures();
             this.InitializeComponent();
             

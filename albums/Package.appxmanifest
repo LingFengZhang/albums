@@ -1,11 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" 
-         xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" 
-         xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" 
-         xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10" 
-         xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
-         xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
-         IgnorableNamespaces="uap mp rescap iot desktop">
+<Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:iot="http://schemas.microsoft.com/appx/manifest/iot/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10" xmlns:uap6="http://schemas.microsoft.com/appx/manifest/uap/windows10/6" IgnorableNamespaces="uap mp rescap iot desktop uap6">
   <Identity Name="925422b1-2c83-4bda-9a8f-7e4b2202b8ee" Publisher="CN=LF" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="925422b1-2c83-4bda-9a8f-7e4b2202b8ee" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
@@ -47,6 +41,11 @@
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
-    <rescap:Capability Name="runFullTrust"/>
+    <Capability Name="codeGeneration" />
+    <uap:Capability Name="picturesLibrary" />
+    <uap:Capability Name="videosLibrary" />
+    <uap6:Capability Name="graphicsCapture" />
+    <uap:Capability Name="musicLibrary" />
+    <rescap:Capability Name="runFullTrust" />
   </Capabilities>
 </Package>

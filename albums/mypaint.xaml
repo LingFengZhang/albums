@@ -8,11 +8,16 @@
     mc:Ignorable="d"
     xmlns:data="using:albums.Models"
     >
-    <Page.Background>
-        <ImageBrush ImageSource="Assets/opTrim_Moment.jpg" Opacity="0.6"/>
+
+    <Page.Background  >
+        <ImageBrush ImageSource="Assets/opTrim_Moment.jpg" Opacity="0.6">
+            
+        </ImageBrush>
+
     </Page.Background>
 
-    <Grid>
+    <Grid >
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto"/>
             <ColumnDefinition Width="auto"/>
@@ -28,17 +33,18 @@
                   ItemsSource="{x:Bind pictures}"
                   ItemClick="choice_click" 
                   SelectionMode="Extended" 
-                  Background="AliceBlue" Opacity="1"   
+                   Opacity="0.6"   
                   Width="150" 
                   Grid.Column="0" 
                   HorizontalAlignment="Left" 
                   VerticalAlignment="Center"
+                  Background="{ThemeResource SystemControlAcrylicElementBrush}"
                   FontFamily="Arial" FontWeight="Bold" FontStyle="Italic">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="data:Picture">
                     <StackPanel>
                         <Border BorderThickness="10">
-                            <TextBlock  Height="70" Width="350" Text="{x:Bind picturepath}"/>
+                            <TextBlock  Height="70" Width="350" Text="{x:Bind picturename}"/>
                         </Border>
                     </StackPanel>
                     </DataTemplate>

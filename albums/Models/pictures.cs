@@ -8,6 +8,11 @@ using Windows.Storage;
 
 namespace albums.Models
 {
+    /// <summary>
+    /// Picture类，在gridview中显示的图片都属于一个Picture类
+    /// 具有：图片名、路径两种属性
+    /// 在XML文档中属于<Item.name>、<Item path = "picturepath">
+    /// </summary>
     public class Picture
     {
         public string picturename { get; set; }
@@ -19,54 +24,39 @@ namespace albums.Models
         }
     }
 
+    
+
+    /// <summary>
+    /// 用于gridview的数据绑定，为Picture的列表
+    /// 通过Xmlfile的方法进行初始化，更新
+    /// </summary>
     public class somepictrues
     {
         public static List<Picture> Getpictures()
         {
             var pictures = new List<Picture>();
-            //Xmlfile xmlfile = new Xmlfile();
-            //XmlDocument doc = new XmlDocument();
-            //doc.Load(ApplicationData.Current.LocalFolder.Path + "//Pictures.xml");
-            //XmlElement pictures_xml = doc.DocumentElement;
+            XmlDocument doc = new XmlDocument();
+            doc.Load(ApplicationData.Current.LocalFolder.Path + "/Pictures.xml");
+            XmlElement pictures_xml = doc.DocumentElement;
+            XmlNodeList list_1 = pictures_xml.ChildNodes;
+            foreach (XmlNode sd in list_1)//test1~test14
+            {
+                XmlNodeList list_2 = sd.ChildNodes;
 
-            //XmlNodeList doclist = pictures_xml.ChildNodes;
-            //foreach (XmlNode sd in doclist)
-            //{
+                foreach (XmlNode aw in list_2)//Nothing  MIKU
+                {
+                    XmlNodeList list_3 = aw.ChildNodes;
 
-            //    foreach(XmlNode aw in sd)
-            //    {
-            //        Picture picture = new Picture();
-            //        if (aw.Name=="Item1")
-            //        {
-            //            picture.picturename = 
-            //        }
-            //        else if(aw.Name == "Item2")
-            //        {
+                    foreach (XmlNode sw in list_3)//Item1 Item2
+                    {
+                        if(sw.Name == "Item1")
+                        {
+                            pictures.Add(new Picture { picturename = "nothing", picturepath = sw.Attributes["path"].Value } );
+                        } 
+                    }
 
-            //        }
-            //        pictures.Add(picture);
-            //    }
-            //    pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/miku.gif" });
-            //}
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/miku.gif"});
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/003B.png" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/003C.png" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/003D.png" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/008B.png" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/037A.png" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/037A.png" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/037C.png" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/070B.png" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/070D.png" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/106B.png" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/18.jpg" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/2.jpg" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/NewFolder1/2017060554539253.jpg" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/miku.gif" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/miku.gif" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/miku.gif" });
-            pictures.Add(new Picture { picturename = "nothing", picturepath = "/Assets/miku.gif" });
-
+                }
+            }
             return pictures;
         }
 

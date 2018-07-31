@@ -121,9 +121,9 @@ namespace albums
                 encoder.SetSoftwareBitmap(softwareBitmap);
 
                 // Set additional encoding parameters, if needed
-                encoder.BitmapTransform.ScaledWidth = 320;
-                encoder.BitmapTransform.ScaledHeight = 240;
-                encoder.BitmapTransform.Rotation = Windows.Graphics.Imaging.BitmapRotation.Clockwise90Degrees;
+                //encoder.BitmapTransform.ScaledWidth = 320;
+                //encoder.BitmapTransform.ScaledHeight = 240;
+                //encoder.BitmapTransform.Rotation = Windows.Graphics.Imaging.BitmapRotation.Clockwise90Degrees;
                 encoder.BitmapTransform.InterpolationMode = BitmapInterpolationMode.Fant;
                 encoder.IsThumbnailGenerated = true;
 
@@ -163,6 +163,7 @@ namespace albums
 
         private void click_Add(object sender, RoutedEventArgs e)
         {
+            Frame.Navigate(typeof(mainpage_1), "");
         }
 
         private async void view_click(object sender, RoutedEventArgs e)
@@ -181,19 +182,28 @@ namespace albums
             }
             SaveSoftwareBitmapToFile(softwareBitmap, outputFile);
 
-            CoreApplicationView newView = CoreApplication.CreateNewView();
-            int newViewId = 0;
-            await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                Frame frame = new Frame();
-                frame.Navigate(typeof(BlankPage1), App.filename);
-                Window.Current.Content = frame;
-                // You have to activate the window in order to show it later.
-                Window.Current.Activate();
+            Picture picture_1 = new Picture();
+            Picture picture_2 = new Picture();
+            picture_1.picturename = "Original_painting";
+            picture_1.picturepath = "/Assets/NewFolder1/" + App.filename;
+            picture_2.emptypivture();
 
-                newViewId = ApplicationView.GetForCurrentView().Id;
-            });
-            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
+            Xmlfile xmlfile = new Xmlfile();
+            xmlfile.append(picture_1,picture_2,"newtest");
+
+            //CoreApplicationView newView = CoreApplication.CreateNewView();
+            //int newViewId = 0;
+            //await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            //{
+            //    Frame frame = new Frame();
+            //    frame.Navigate(typeof(BlankPage1), App.filename);
+            //    Window.Current.Content = frame;
+            //    // You have to activate the window in order to show it later.
+            //    Window.Current.Activate();
+
+            //    newViewId = ApplicationView.GetForCurrentView().Id;
+            //});
+            //bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
 
         }
     }

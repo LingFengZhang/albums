@@ -11,9 +11,14 @@ namespace albums.Models
 {
     class Xmlfile
     {
-        
-        
-            private void Newxml()
+
+        /// <summary>
+        /// 创建一个XML文件并确定数据结构
+        /// 每个picture下有两个图片：原图(Original_painting)、临摹(My_painting)
+        /// 图片下有item,item.name为图片文件名，item有属性path，为图片路径
+        /// </summary>
+        /// 
+        public void Newxml()
             {
                 //创建一个XML文档
                 XmlDocument doc = new XmlDocument();
@@ -39,7 +44,7 @@ namespace albums.Models
                  picture.AppendChild(my_painting);
                 //确定XML文档结构
 
-                doc.Save("ms-appx:///Assets/Pictures.xml");
+                doc.Save(ApplicationData.Current.LocalFolder.Path + "/Pictures.xml");
             }
 
         //添加图册成员
@@ -47,17 +52,17 @@ namespace albums.Models
         {
             XmlDocument doc = new XmlDocument();
             XmlElement pictures;
-            if (File.Exists("ms-appx:///Assets/Pictures.xml"))
+            if (File.Exists(ApplicationData.Current.LocalFolder.Path + "/Pictures.xml"))
             {
                 
-                doc.Load("ms-appx:///Assets/Pictures.xml");
+                doc.Load(ApplicationData.Current.LocalFolder.Path + "/Pictures.xml");
                  pictures= doc.DocumentElement;
 
             }
             else
             {
-                XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", "ufb - 8", null);
-                doc.AppendChild(dec);
+                Newxml();
+                doc.Load(ApplicationData.Current.LocalFolder.Path + "/Pictures.xml");
                 pictures = doc.CreateElement("Pictures");
 
             }
@@ -76,21 +81,21 @@ namespace albums.Models
             XmlElement my_painting = doc.CreateElement(pictureB.picturename);
             XmlElement item2 = doc.CreateElement("Item2");
             item2.SetAttribute("path", pictureB.picturepath);
-            original_painting.AppendChild(item2);
+            my_painting.AppendChild(item2);
             picture.AppendChild(my_painting);
             //确定XML文档结构
 
-            doc.Save("ms-appx:///Assets/Pictures.xml");
+            doc.Save(ApplicationData.Current.LocalFolder.Path + "/Pictures.xml");
 
         }
         //删除图册成员
         public void remove(string picturename)
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load("ms-appx:///Assets/Pictures.xml");
+            doc.Load(ApplicationData.Current.LocalFolder.Path + "/Pictures.xml");
             XmlNode docnode = doc.SelectSingleNode("/Pictures/" + picturename);
             docnode.ParentNode.RemoveChild(docnode);
-            doc.Save("ms-appx:///Assets/Pictures.xml");
+            doc.Save(ApplicationData.Current.LocalFolder.Path + "/Pictures.xml");
         }
 
     }
